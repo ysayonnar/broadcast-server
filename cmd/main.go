@@ -25,10 +25,14 @@ func connect(port int, username string) {
 		fmt.Println("port 8080 can't be used as it reserved by server")
 		return
 	}
+	if username == "" {
+		fmt.Println("username can't be empty")
+		return
+	}
 
 	err := user.Connect(port, username)
 	if err != nil {
-		fmt.Printf("Error while connection to the server: %s", err.Error())
+		fmt.Printf("err: %s", err.Error())
 		return
 	}
 }
