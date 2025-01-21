@@ -53,7 +53,7 @@ func (s *Server) StartServer() error {
 	fmt.Println("Server started on http://localhost:8080")
 	err := http.ListenAndServe(":8080", r)
 	if err != nil {
-		return fmt.Errorf("Error while starting server: %w", err.Error())
+		return fmt.Errorf("Error while starting server: %s", err.Error())
 	}
 	return nil
 }

@@ -28,7 +28,7 @@ func connect(port int, username string) {
 
 	err := user.Connect(port, username)
 	if err != nil {
-		fmt.Printf("Error while connection to the server: %w", err.Error())
+		fmt.Printf("Error while connection to the server: %s", err.Error())
 		return
 	}
 }
