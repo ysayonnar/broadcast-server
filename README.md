@@ -1,7 +1,7 @@
 # Broadcast server
 
 Pure broadcast server that allows users to communicate on various ports
-![alt text](photo.png)
+![example](photo.png)
 
 ### Language and frameworks
 
@@ -48,4 +48,7 @@ broadcast-server connect --port <port> --username <username>
 
 #### Hint
 
-Use `broadcast-server help` for more info
+- Use `broadcast-server help` for more info
+
+- Type `--users` in chat to see connected users
+  ![example](image.png)
