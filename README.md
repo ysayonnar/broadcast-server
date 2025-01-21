@@ -48,7 +48,7 @@ broadcast-server connect --port <port> --username <username>
 
 #### Hint
 
-- Use `broadcast-server help` for more info
+ Use `broadcast-server help` for more info
 
-- Type `--users` in chat to see connected users
+ Type `--users` in chat to see connected users
   ![example](photo1.png)
