@@ -76,14 +76,22 @@ func (s *Server) wsHanlder(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 
-		if string(message) == "" {
-			continue
-		}
-
-		for _, connection := range s.Channels[port].Conn {
-			err = connection.WriteMessage(messageType, []byte(fmt.Sprintf("%d:%s -> %s", port, username, message)))
-			if err != nil {
-				fmt.Println("error:", err.Error())
+		if len(message) > 1 {
+			if string(message[:len(message)-1]) == "--users" {
+				users := "<---connected users--->"
+				for name := range s.Channels[port].Users {
+					users += "\n\t" + name
+				}
+				users += "\n"
+				message = []byte(users)
+			} else {
+				message = []byte(fmt.Sprintf("%d:%s -> %s", port, username, message))
+			}
+			for _, connection := range s.Channels[port].Conn {
+				err = connection.WriteMessage(messageType, message)
+				if err != nil {
+					fmt.Println("error:", err.Error())
+				}
 			}
 		}
 	}
