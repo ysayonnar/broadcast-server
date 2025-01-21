@@ -1,17 +1,36 @@
 package main
 
 import (
+	"broadcast-server/internal/server"
+	"broadcast-server/internal/user"
 	"flag"
 	"fmt"
 	"os"
 )
 
 func start() {
-	fmt.Println("Server started")
+	var s server.Server
+	err := s.StartServer()
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
 }
 
 func connect(port int, username string) {
-	fmt.Printf("PORT: %d, username: %s", port, username)
+	if port < 1000 {
+		fmt.Println("port must be from 1000 to 9999")
+		return
+	} else if port == 8080 {
+		fmt.Println("port 8080 can't be used as it reserved by server")
+		return
+	}
+
+	err := user.Connect(port, username)
+	if err != nil {
+		fmt.Printf("Error while connection to the server: %w", err.Error())
+		return
+	}
 }
 
 func main() {
