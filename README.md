@@ -52,3 +52,5 @@ broadcast-server connect --port <port> --username <username>
 
  Type `--users` in chat to see connected users
  ![example](photo1.png)
+
+https://github.com/ysayonnar/broadcast-server
