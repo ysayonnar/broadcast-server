@@ -11,7 +11,7 @@ import (
 )
 
 type channel struct {
-	Conn  map[string]*websocket.Conn // map[usesrname]conn
+	Conn  map[string]*websocket.Conn // map[username]conn
 	Users map[string]bool            // map[username]bool
 }
 

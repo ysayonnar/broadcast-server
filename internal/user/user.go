@@ -39,7 +39,7 @@ func Connect(port int, username string) error {
 			if msg == "" {
 				continue
 			} else {
-				conn.WriteMessage(websocket.TextMessage, []byte(msg))
+				err = conn.WriteMessage(websocket.TextMessage, []byte(msg))
 			}
 		}
 	}()
